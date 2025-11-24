@@ -21,13 +21,10 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("movieapp.android.library")
                 apply("movieapp.android.hilt")
                 apply("movieapp.android.library.compose")
-//                apply("kotlin.compose")
             }
 
 
             dependencies {
-//                add("implementation", project(":core:theme"))
-
                 add("testImplementation", kotlin("test"))
                 add("androidTestImplementation", kotlin("test"))
 

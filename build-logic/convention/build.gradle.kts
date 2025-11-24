@@ -5,8 +5,6 @@ plugins {
 group = "com.mymovie.buildlogic"
 
 java {
-//    sourceCompatibility = JavaVersion.VERSION_17
-//    targetCompatibility = JavaVersion.VERSION_17
 
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
@@ -58,6 +56,11 @@ gradlePlugin {
         register("androidDomain") {
             id = "movieapp.android.domain"
             implementationClass = "AndroidDomainConventionPlugin"
+        }
+
+        register("androidPresentation") {
+            id = "movieapp.android.presentation"
+            implementationClass = "AndroidPresentationConventionPlugin"
         }
 
         register("androidNavigationPlugin") {

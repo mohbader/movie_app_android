@@ -22,6 +22,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
                 defaultConfig.apply {
                     targetSdk = libs.targetSdk.toInt()
+                    compileSdk = libs.targetSdk.toInt()
                     versionCode = libs.versionCode.toInt()
                     versionName = libs.versionName
                     applicationId = "com.my.movieapp"

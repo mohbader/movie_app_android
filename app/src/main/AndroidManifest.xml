@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMovieApp">
         <activity
-            android:name=".MainActivity"
+            android:name="com.my.movie.feature.splashscreen.SplashScreen"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyMovieApp">

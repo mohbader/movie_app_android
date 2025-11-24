@@ -19,7 +19,7 @@ internal fun Project.configureKotlinAndroid(
         defaultConfig {
             minSdk = libs.minTargetSdk.toInt()
         }
-        namespace = "com.example.baseapp"
+        namespace = "com.my.movieapp"
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17

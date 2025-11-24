@@ -22,6 +22,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyMovieApp"
 include(":app")
-include(":feature")
-include(":feature:main")
 include(":feature:splashscreen")
+include(":core:theme")
+include(":feature:main:presentation")

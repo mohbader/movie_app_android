@@ -18,7 +18,7 @@ androidxComposeCompiler = "1.5.7"
 coil = "2.7.0"
 ktor = '2.3.11'
 kotlinxCoroutines = "1.10.2"
-navigation = "2.9.3"
+navigation = "2.9.6"
 androidxHiltNavigationCompose = "1.2.0"
 
 
@@ -26,13 +26,13 @@ androidxHiltNavigationCompose = "1.2.0"
 
 hilt = "2.57.1"
 ksp = "2.2.21-2.0.4"
-org-jetbrains-kotlin-jvm = "2.2.21"
 room = "2.7.2"
-serialization = "2.2.21"
 
 minSdk = "31"
 targetSdk = "36"
 compileSdk = "36"
+activity = "1.11.0"
+constraintlayout = "2.1.4"
 
 
 [libraries]
@@ -84,6 +84,8 @@ ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
 #matrial design 3
 material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 
 [plugins]
@@ -103,6 +105,7 @@ system-application-compose = { id = "movieapp.android.application.compose", vers
 system-plugin-compose-library = { id = "movieapp.android.library.compose", version = "unspecified" }
 system-plugin-library = { id = "movieapp.android.library", version = "unspecified" }
 system-plugin-feature = { id = "movieapp.android.feature", version = "unspecified" }
+system-plugin-presentation = { id = "movieapp.android.presentation", version = "unspecified" }
 system-plugin-hilt = { id = "movieapp.android.hilt", version = "unspecified" }
 system-plugin-room = { id = "movieapp.android.room", version = "unspecified" }
 system-plugin-flavors = { id = "movieapp.app.flavors", version = "unspecified" }
