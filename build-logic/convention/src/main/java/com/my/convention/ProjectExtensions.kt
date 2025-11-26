@@ -81,6 +81,9 @@ internal val VersionCatalog.uiToolingPreview: Provider<MinimalExternalModuleDepe
 internal val VersionCatalog.uiGraphics: Provider<MinimalExternalModuleDependency>
     get() = findLibraryOrThrow("ui.graphics")
 
+internal val VersionCatalog.splashScreenApi: Provider<MinimalExternalModuleDependency>
+    get() = findLibraryOrThrow("splash.screen.api")
+
 internal val VersionCatalog.composeCompiler: Provider<PluginDependency>
     get() = findPluginOrThrow("kotlin.compose")
 

@@ -21,7 +21,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "MyMovieApp"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":feature:splashscreen")
 include(":core:theme")
 include(":feature:main:presentation")
+include(":core:navigation")

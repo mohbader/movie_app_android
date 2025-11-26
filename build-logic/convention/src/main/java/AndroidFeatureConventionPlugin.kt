@@ -5,6 +5,7 @@ import com.my.convention.hiltComposeNav
 import com.my.convention.kotlinCoroutines
 import com.my.convention.libs
 import com.my.convention.material3
+import com.my.convention.splashScreenApi
 import com.my.convention.ui
 import com.my.convention.uiGraphics
 import com.my.convention.uiTooling
@@ -38,6 +39,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.uiToolingPreview)
                 add("implementation", libs.uiTooling)
                 add("implementation", libs.uiGraphics)
+                add("implementation", libs.splashScreenApi)
             }
         }
     }
