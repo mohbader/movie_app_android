@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.system.plugin.hilt)
     alias(libs.plugins.system.plugin.flavors)
-    alias(libs.plugins.system.application.compose)
 }
 
 android {
@@ -20,6 +19,16 @@ android {
             isMinifyEnabled = false
         }
     }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
+//    }
+//    kotlinOptions {
+//        jvmTarget = "11"
+//    }
+//    buildFeatures {
+//        compose = true
+//    }
 }
 
 dependencies {
@@ -42,5 +51,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(projects.feature.splashscreen)
-    implementation(projects.feature.main.presentation)
+    implementation(projects.core.theme)
+    implementation(projects.feature.home.presentation)
+    implementation(projects.core.navigation)
+
+    implementation(libs.hilt.compose.navigation)
+    implementation(libs.adaptive.nav.suite)
 }

@@ -6,6 +6,3 @@ plugins {
 android{
     namespace="com.my.movieapp.feature.splashscreen"
 }
-dependencies {
-    implementation(project(":feature:main:presentation"))
-}

@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.my.movie.core.theme.theme.AppTheme
-import com.my.movie.main.presentation.MainActivity
 import kotlinx.coroutines.delay
 
 @SuppressLint("CustomSplashScreen")
@@ -52,11 +51,6 @@ fun DelayedIntentScreen() {
     val context = LocalContext.current
     val delayMillis = 3000L
 
-    LaunchedEffect(Unit) {
-        delay(delayMillis) // Suspend the coroutine for the specified delay
-        val intent = Intent(context, MainActivity::class.java)
-        context.startActivity(intent)
-    }
 }
 
 

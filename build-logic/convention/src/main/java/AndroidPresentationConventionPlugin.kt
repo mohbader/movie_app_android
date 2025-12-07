@@ -15,6 +15,7 @@ class AndroidPresentationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", project(":core:theme"))
+                add("implementation", project(":core:navigation"))
             }
         }
     }
