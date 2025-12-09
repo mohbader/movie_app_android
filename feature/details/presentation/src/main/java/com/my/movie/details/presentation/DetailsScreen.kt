@@ -1,27 +1,18 @@
-package com.my.moview.home.presentation
+package com.my.movie.details.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.my.movie.core.navigation.MainGraph
-import com.my.movie.core.navigation.OnNavigateTo
 import com.my.movie.core.theme.theme.AppTheme
 
 @Composable
-internal fun HomeScreen(
-    onNavigate: OnNavigateTo
-) {
+internal fun DetailsScreen(){
     AppTheme {
         Column(
             modifier = Modifier
@@ -30,26 +21,10 @@ internal fun HomeScreen(
             verticalArrangement = Arrangement.Center,
         ) {
             Text(
-                text = "HomeScreen",
+                text = "Details Screen",
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
             )
-
-            Spacer(Modifier.heightIn(8.dp))
-
-            Button(onClick = {
-                onNavigate(MainGraph.Details) {
-                    launchSingleTop = true
-                }
-            }) {
-                Text(text = "Go to Details")
-            }
         }
     }
-}
-
-@Preview
-@Composable
-fun HomeScreenPreview() {
-    HomeScreen(onNavigate = { _, _ -> })
 }

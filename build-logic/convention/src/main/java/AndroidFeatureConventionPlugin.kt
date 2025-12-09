@@ -22,6 +22,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("movieapp.android.library")
                 apply("movieapp.android.hilt")
                 apply("movieapp.android.library.compose")
+                apply("kotlinx-serialization")
             }
 
 

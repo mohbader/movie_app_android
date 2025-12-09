@@ -35,6 +35,8 @@ activity = "1.11.0"
 constraintlayout = "2.1.4"
 splashApi = "1.0.0"
 
+kotlinxSerializationJson = "1.9.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -95,6 +97,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 
 #adaptive nav bar
 adaptive-nav-suite = { group = "androidx.compose.material3", name = "material3-adaptive-navigation-suite" }
+
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 
 
 [plugins]

@@ -52,8 +52,11 @@ dependencies {
 
     implementation(projects.feature.splashscreen)
     implementation(projects.core.theme)
-    implementation(projects.feature.home.presentation)
     implementation(projects.core.navigation)
+    implementation(projects.feature.home.presentation)
+    implementation(projects.feature.favourite.presentation)
+    implementation(projects.feature.details.presentation)
+
 
     implementation(libs.hilt.compose.navigation)
     implementation(libs.adaptive.nav.suite)
