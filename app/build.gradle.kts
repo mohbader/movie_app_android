@@ -53,6 +53,7 @@ dependencies {
     implementation(projects.feature.splashscreen)
     implementation(projects.core.theme)
     implementation(projects.core.navigation)
+    implementation(projects.core.systemdesign)
     implementation(projects.feature.home.presentation)
     implementation(projects.feature.favourite.presentation)
     implementation(projects.feature.details.presentation)
