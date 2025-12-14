@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun MovieTopAppBar(
     colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(),
-    @StringRes title: Int
-
+    @StringRes title: Int,
+    onSettingsClicked:() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
         modifier = Modifier.testTag("Movie App"),
@@ -32,7 +32,7 @@ fun MovieTopAppBar(
 
         },
         actions = {
-            IconButton(onClick = {}) {
+            IconButton(onClick = {onSettingsClicked}) {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = "Settings"

@@ -14,6 +14,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -26,6 +29,7 @@ import com.my.movie.core.navigation.R
 import com.my.movie.core.navigation.main.MainNav
 import com.my.movie.core.systemdesign.MovieTopAppBar
 import com.my.movie.favourite.presentation.navigation.favouriteScreen
+import com.my.movie.setting.presentation.SettingDialog
 import com.my.moview.home.presentation.navigation.homeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,6 +46,11 @@ internal fun MainScreen(
     val currentScreen =
         items.find { currentDestination?.hasRoute(it::class) == true }
             ?: MainNav.MainRout.Home
+
+    var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
+
+    if (showSettingsDialog)
+        SettingDialog(onDismiss = { showSettingsDialog = false })
 
     NavigationSuiteScaffold(
         modifier = modifier,
@@ -67,7 +76,8 @@ internal fun MainScreen(
         Scaffold() {
             Column() {
                 MovieTopAppBar(
-                    title= com.my.movieapp.R.string.app_name
+                    title = com.my.movieapp.R.string.app_name,
+                    onSettingsClicked = { showSettingsDialog = true }
                 )
 
                 NavHost(

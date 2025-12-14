@@ -50,13 +50,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(projects.feature.splashscreen)
+    //core
     implementation(projects.core.theme)
     implementation(projects.core.navigation)
     implementation(projects.core.systemdesign)
+
+    //feature
     implementation(projects.feature.home.presentation)
     implementation(projects.feature.favourite.presentation)
     implementation(projects.feature.details.presentation)
+    implementation(projects.feature.splashscreen)
+    implementation(projects.feature.setting.presentation)
+
 
 
     implementation(libs.hilt.compose.navigation)
