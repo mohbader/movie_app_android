@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "com.my.movie.core.systemdesign"
 }
+
+dependencies{
+    api(libs.androidx.compose.material.iconsExtended)
+}

@@ -13,8 +13,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 
@@ -69,8 +71,8 @@ fun ThemeChoices(
 
     Column(modifier = Modifier.selectableGroup()) {
         ChoicerRow(text = "Light", isSelected = true, onClick = {})
-        ChoicerRow(text = "dark", isSelected = true, onClick = {})
-        ChoicerRow(text = "default", isSelected = true, onClick = {})
+        ChoicerRow(text = "dark", isSelected = false, onClick = {})
+        ChoicerRow(text = "default", isSelected = false, onClick = {})
     }
 }
 
@@ -89,13 +91,20 @@ fun ChoicerRow(
                 selected = isSelected,
                 onClick = onClick,
                 role = Role.RadioButton
-            )
+            ),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(
             selected = isSelected,
-            onClick = onClick
+            onClick = null
         )
         Spacer(Modifier.width(8.dp))
         Text(text = text)
     }
+}
+
+@Preview
+@Composable
+fun SettingDialogPreview() {
+    SettingDialog(onDismiss = {}, onChaneTheme = {})
 }

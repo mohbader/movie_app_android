@@ -3,12 +3,7 @@ package com.my.movieapp.ui
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.rounded.Build
 import androidx.compose.material3.ExperimentalMaterial3Api
-
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -19,17 +14,18 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hasRoute
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.my.movie.core.navigation.OnNavigateTo
-import com.my.movie.core.navigation.R
 import com.my.movie.core.navigation.main.MainNav
 import com.my.movie.core.systemdesign.MovieTopAppBar
 import com.my.movie.favourite.presentation.navigation.favouriteScreen
 import com.my.movie.setting.presentation.SettingDialog
+import com.my.movieapp.navigation.TopLevelDestination
+import com.my.movieapp.navigation.navigateToTopLevelDestination
+import com.my.movieapp.navigation.topLevelDestinationList
 import com.my.moview.home.presentation.navigation.homeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,8 +40,9 @@ internal fun MainScreen(
     val currentBackStack by navController.currentBackStackEntryAsState()
     val currentDestination = currentBackStack?.destination
     val currentScreen =
-        items.find { currentDestination?.hasRoute(it::class) == true }
-            ?: MainNav.MainRout.Home
+        topLevelDestinationList.find { currentDestination?.hasRoute(it.root) == true }
+            ?: TopLevelDestination.HOME
+
 
     var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
 
@@ -55,28 +52,22 @@ internal fun MainScreen(
     NavigationSuiteScaffold(
         modifier = modifier,
         navigationSuiteItems = {
-            items.forEach { item ->
+            topLevelDestinationList.forEach { item ->
                 item(
                     icon = {
                         Icon(imageVector = item.icon, contentDescription = null)
                     },
                     onClick = {
-                        navController.navigate(item) {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
+                        navigateToTopLevelDestination(item, navController)
                     },
-                    selected = items == currentScreen
+                    selected = topLevelDestinationList == currentScreen.root
                 )
             }
         }) {
         Scaffold() {
             Column() {
                 MovieTopAppBar(
-                    title = com.my.movieapp.R.string.app_name,
+                    title = currentScreen.title,
                     onSettingsClicked = { showSettingsDialog = true }
                 )
 
@@ -93,13 +84,3 @@ internal fun MainScreen(
     }
 }
 
-private val items = listOf(
-    MainNav.MainRout.Home,
-    MainNav.MainRout.Favourites
-)
-private val MainNav.MainRout.icon
-    get() =
-        when (this) {
-            is MainNav.MainRout.Home -> Icons.Default.Home
-            is MainNav.MainRout.Favourites -> Icons.Default.FavoriteBorder
-        }

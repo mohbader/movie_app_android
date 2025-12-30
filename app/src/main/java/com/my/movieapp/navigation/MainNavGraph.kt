@@ -29,7 +29,7 @@ fun MainNavGraph(
             }
         }
 
-        detailsScreen { destination, optionsBuilder ->
+        detailsScreen() { destination, optionsBuilder ->
             navController.navigateTo(destination, navOptions(optionsBuilder))
         }
 

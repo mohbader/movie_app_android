@@ -28,11 +28,9 @@ fun MovieTopAppBar(
         title = {
             Text(text = stringResource(title))
         },
-        navigationIcon = {
-
-        },
+        navigationIcon = {},
         actions = {
-            IconButton(onClick = {onSettingsClicked}) {
+            IconButton(onClick = onSettingsClicked) {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = "Settings"
